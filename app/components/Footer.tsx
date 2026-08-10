@@ -95,7 +95,7 @@ const Footer = () => {
                 GitHub
               </a>
               <a
-                href="#"
+                href="https://portfolio-next-ochre-three.vercel.app/"
                 className="inline-flex items-center px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
               >
                 Portfolio

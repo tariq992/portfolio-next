@@ -41,7 +41,7 @@ const projects = [
     borderColor: "border-accent-cyan/20",
     glowColor: "rgba(34, 211, 238, 0.15)",
     image: "/images/projects/ratedcare.png",
-    caseStudy: "/assets/case-studies/resume-tariq-mehmood.pdf",
+    caseStudy: "/assets/case-studies/rcc_case_study.pdf",
     stats: {
       type: "Healthcare SaaS",
       duration: "6 months",
@@ -70,8 +70,8 @@ const projects = [
     color: "from-accent-purple/20 to-accent-purple/5",
     borderColor: "border-accent-purple/20",
     glowColor: "rgba(167, 139, 250, 0.15)",
-    image: "/images/projects/ratedcare.png",
-    caseStudy: "/assets/case-studies/resume-tariq-mehmood.pdf",
+    image: "/images/projects/symforklifts.png",
+    caseStudy: "/assets/case-studies/sym_forklifts_case_study.pdf",
     stats: {
       type: "Industrial Platform",
       duration: "4 months",
@@ -100,8 +100,8 @@ const projects = [
     color: "from-accent-pink/20 to-accent-pink/5",
     borderColor: "border-accent-pink/20",
     glowColor: "rgba(244, 114, 182, 0.15)",
-    image: "/images/projects/ratedcare.png",
-    caseStudy: "/assets/case-studies/resume-tariq-mehmood.pdf",
+    image: "/images/projects/chatbot.png",
+    caseStudy: "/assets/case-studies/ai_chatbot_agent_case_study.pdf",
     stats: {
       type: "AI Solution",
       duration: "3 months",
@@ -130,8 +130,8 @@ const projects = [
     color: "from-accent-cyan/20 to-accent-purple/5",
     borderColor: "border-accent-cyan/20",
     glowColor: "rgba(34, 211, 238, 0.15)",
-    image: "/images/projects/ratedcare.png",
-    caseStudy: "/assets/case-studies/resume-tariq-mehmood.pdf",
+    image: "/images/projects/freightmanagement.png",
+    caseStudy: "/assets/case-studies/freight_management_case_study.pdf",
     stats: {
       type: "Logistics SaaS",
       duration: "5 months",
@@ -153,7 +153,7 @@ const projects = [
     color: "from-accent-purple/20 to-accent-pink/5",
     borderColor: "border-accent-purple/20",
     glowColor: "rgba(167, 139, 250, 0.15)",
-    image: "/images/projects/ratedcare.png",
+    image: "/images/projects/thepalm.png",
     caseStudy: "/assets/case-studies/resume-tariq-mehmood.pdf",
     stats: {
       type: "E-Commerce",
@@ -176,8 +176,8 @@ const projects = [
     color: "from-accent-pink/20 to-accent-cyan/5",
     borderColor: "border-accent-pink/20",
     glowColor: "rgba(244, 114, 182, 0.15)",
-    image: "/images/projects/ratedcare.png",
-    caseStudy: "/assets/case-studies/resume-tariq-mehmood.pdf",
+    image: "/images/projects/campus-shoes.png",
+    caseStudy: "/assets/case-studies/campus_shoes_case_study.pdf",
     stats: {
       type: "Retail Platform",
       duration: "6 months",
@@ -251,7 +251,7 @@ function PDFViewerModal({
               <div className="flex items-center gap-3 min-w-0">
                 <FileText className="w-5 h-5 text-accent-cyan shrink-0" />
                 <h3 className="text-sm sm:text-base font-semibold text-text-primary truncate">
-                  {title} - Case Study
+                  {title} - Learn Mor
                 </h3>
               </div>
               <div className="flex items-center gap-2 shrink-0">
@@ -459,7 +459,7 @@ function ProjectCard({
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-accent-cyan/20 to-accent-purple/20 border border-accent-cyan/30 text-accent-cyan text-xs font-medium hover:shadow-lg hover:shadow-accent-cyan/20 transition-all duration-300 flex-1 sm:flex-none justify-center"
             >
               <FileText className="w-3.5 h-3.5" />
-              Case Study
+              Learn More
             </motion.button>
           </div>
         </div>

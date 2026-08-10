@@ -284,54 +284,6 @@ function ResumeCard({ onViewResume }: { onViewResume: () => void }) {
       className="mt-8 sm:mt-10"
     >
       <div className="glass rounded-2xl border border-border overflow-hidden">
-        {/* ─── Header ────────────────────── */}
-        <div className="p-4 sm:p-6 border-b border-border bg-bg-card/30">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center shrink-0">
-                <FileText className="w-5 h-5 text-accent-cyan" />
-              </div>
-              <div>
-                <h4 className="text-sm font-semibold text-text-primary">
-                  Professional Resume
-                </h4>
-                <p className="text-xs text-text-muted">
-                  Download or view my complete professional profile
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center gap-2">
-              <motion.a
-                href="/assets/resume-tariq-mehmood.pdf"
-                download="Tariq_Mehmood_Resume.pdf"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-accent-cyan/20 to-accent-purple/20 border border-accent-cyan/30 text-accent-cyan text-sm font-medium hover:shadow-lg hover:shadow-accent-cyan/20 transition-all duration-300"
-              >
-                <Download className="w-4 h-4" />
-                Download PDF
-              </motion.a>
-              <motion.button
-                onClick={onViewResume}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-border bg-bg-card/30 text-text-secondary text-sm font-medium hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300"
-              >
-                <ExternalLink className="w-4 h-4" />
-                View Full
-              </motion.button>
-              <motion.button
-                onClick={() => setShowFullResume(!showFullResume)}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-border bg-bg-card/30 text-text-secondary text-sm font-medium hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300"
-              >
-                {showFullResume ? "Hide Details" : "Show Details"}
-              </motion.button>
-            </div>
-          </div>
-        </div>
-
         {/* ─── Quick Stats ────────────────── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 sm:p-6 bg-bg-primary/30">
           {[
@@ -472,7 +424,7 @@ function ResumeCard({ onViewResume }: { onViewResume: () => void }) {
           )}
         </AnimatePresence>
       </div>
-    </motion.div>
+    </motion.div> 
   );
 }
 
@@ -549,42 +501,6 @@ export default function About() {
                 GitHub Actions, Linux server management, and building secure, high-performance
                 applications ready for production.
               </motion.p>
-
-              {/* ─── View Resume Button ────────── */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.35 }}
-                className="mb-8"
-              >
-                <motion.button
-                  onClick={() => setShowResume(true)}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-gradient-to-r from-accent-cyan/20 via-accent-purple/20 to-accent-pink/20 border border-accent-cyan/30 text-accent-cyan font-semibold hover:shadow-lg hover:shadow-accent-cyan/20 transition-all duration-300 text-sm sm:text-base"
-                >
-                  <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
-                  View My Resume / CV
-                  <ExternalLink className="w-4 h-4" />
-                </motion.button>
-              </motion.div>
-
-              {/* ─── Stats Grid ────────────────── */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="p-3 sm:p-4 rounded-xl bg-bg-card border border-border hover:border-accent-cyan/30 transition-all duration-300 group"
-                  >
-                    <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent-cyan mb-1 sm:mb-2 group-hover:scale-110 transition-transform" />
-                    <div className="text-lg sm:text-2xl font-bold text-text-primary">{stat.value}</div>
-                    <div className="text-xs sm:text-sm text-text-muted">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </div>
             </motion.div>
 
             {/* ─── Right Content - Holographic module ── */}
@@ -671,35 +587,10 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
           >
-            <span className="text-xs sm:text-sm text-text-muted">Connect with me:</span>
-            {[
-              { icon: FaLinkedinIn, href: "https://linkedin.com/in/tariq992", label: "LinkedIn" },
-              { icon: FaGithub, href: "https://github.com/tariq992", label: "GitHub" },
-              { icon: FaEnvelope, href: "mailto:tmtariq110@gmail.com", label: "Email" },
-            ].map((social) => (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-border bg-bg-card/30 text-text-secondary hover:text-accent-cyan hover:border-accent-cyan/30 hover:shadow-lg hover:shadow-accent-cyan/10 transition-all duration-300 flex items-center justify-center"
-                aria-label={social.label}
-              >
-                <social.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              </motion.a>
-            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* ─── Resume PDF Viewer Modal ────────── */}
-      <AnimatePresence>
-        {showResume && (
-          <ResumeViewerModal onClose={() => setShowResume(false)} />
-        )}
-      </AnimatePresence>
     </>
   );
 }

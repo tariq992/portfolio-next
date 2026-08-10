@@ -1,5 +1,5 @@
 "use client";
-
+import { FileText } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, 
@@ -10,6 +10,7 @@ import { ArrowDown,
   Award,
   Briefcase,
   Users  } from "lucide-react";
+  import { FaLinkedinIn, FaGithub} from "react-icons/fa"
 import HeroHologram from "./HeroHologram";
 
 const roles = [
@@ -131,20 +132,6 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.48 }}
-            className="mx-auto mb-8 sm:mb-10 max-w-2xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-text-secondary lg:mx-0 px-2 sm:px-0"
-          >
-            I build scalable full-stack web applications using React.js,
-            Node.js, Express.js, MongoDB, Laravel, and Next.js. I specialize in
-            AI-powered solutions, REST APIs, cloud deployment, DevOps, and
-            production-ready SaaS, healthcare, logistics, and business
-            management platforms.
-          </motion.p> */}
-
-          
           {/* ─── Stats Bar ────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -165,47 +152,6 @@ export default function Hero() {
               </div>
             ))}
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.64 }}
-            className="mb-8 sm:mb-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 lg:justify-start px-2 sm:px-0"
-          >
-            <motion.a
-              href="#contact"
-              data-cursor="action"
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-              whileHover={{ y: -4, scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="group relative overflow-hidden rounded-2xl border border-border-color bg-bg-card/50 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base md:text-lg font-bold shadow-lg shadow-accent-cyan/20 dark:shadow-accent-cyan/15 w-full sm:w-auto text-center transition-shadow hover:shadow-accent-cyan/30 dark:hover:shadow-accent-cyan/25"
-            >
-              <span className="relative z-10">Work Together</span>
-              <span className="absolute inset-0 translate-x-[-120%] bg-white/20 transition-transform duration-700 group-hover:translate-x-[120%]" />
-            </motion.a>
-            
-            <motion.a
-              href="#projects"
-              data-cursor="link"
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .getElementById("projects")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-              whileHover={{ y: -4, scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="rounded-2xl border border-border-color bg-bg-card/50 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base md:text-lg font-bold text-text-primary backdrop-blur-xl transition-all duration-300 hover:border-accent-cyan/50 hover:bg-accent-cyan/5 w-full sm:w-auto text-center"
-            >
-              View Projects
-            </motion.a>
-          </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -213,9 +159,9 @@ export default function Hero() {
             className="flex items-center justify-center gap-3 sm:gap-4 lg:justify-start"
           >
             {[
-              { icon: Code2, href: "#projects", label: "Projects" },
+              { icon: FaGithub, href: "https://github.com/tariq992", label: "Projects" },
               {
-                icon: Globe,
+                icon: FaLinkedinIn,
                 href: "https://www.linkedin.com/in/tariq992",
                 label: "LinkedIn",
               },
@@ -237,6 +183,16 @@ export default function Hero() {
                 <social.icon className="h-4 w-4 sm:h-5 sm:w-5" />
               </motion.a>
             ))}
+             
+  {/* Resume Button */}
+  <motion.a
+    href="/assets/resume-tariq-mehmood.pdf"
+    download="Tariq_Mehmood_Resume.pdf"
+    whileHover={{ scale: 1.12, y: -4 }}
+    className="h-11 w-11 sm:h-12 sm:w-12 rounded-2xl border border-border bg-accent-cyan/10 text-accent-cyan backdrop-blur-xl transition-all duration-300 hover:border-accent-cyan/60 hover:shadow-lg hover:shadow-accent-cyan/10 flex items-center justify-center"
+  >
+    <FileText className="h-4 w-4 sm:h-5 sm:w-5" />
+  </motion.a>
           </motion.div>
         </div>
       </div>
