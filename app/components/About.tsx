@@ -14,8 +14,6 @@ import {
   Users,
   GraduationCap,
   Star,
-  CheckCircle,
-  Globe,
   Server,
   Database,
   Cloud,
@@ -148,6 +146,8 @@ function ResumeViewerModal({
 }: {
   onClose: () => void;
 }) {
+  const [isVisible, setIsVisible] = useState(true);
+  const [pdfError, setPdfError] = useState(false);
   const pdfUrl = "/assets/resume-tariq-mehmood.pdf";
 
   useEffect(() => {
@@ -353,124 +353,124 @@ function ResumeCard({ onViewResume }: { onViewResume: () => void }) {
         </div>
 
         {/* ─── Expandable Full Resume ────── */}
-<AnimatePresence initial={false}>
-  {showFullResume && (
-    <motion.div
-      initial={{ height: 0, opacity: 0 }}
-      animate={{ height: "auto", opacity: 1 }}
-      exit={{ height: 0, opacity: 0 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-      className="overflow-hidden"
-    >
-      <div className="p-4 sm:p-6 border-t border-border space-y-6">
-            {/* Experience */}
-            <div>
-              <h5 className="text-sm font-semibold text-text-primary mb-4 flex items-center gap-2">
-                <Briefcase className="w-4 h-4 text-accent-cyan" />
-                Work Experience
-              </h5>
-              <div className="space-y-4">
-                {experienceData.map((exp, index) => (
-                  <motion.div
-                    key={exp.id}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="relative pl-4 sm:pl-6 border-l-2 border-accent-cyan/20 hover:border-accent-cyan/60 transition-colors"
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-1">
-                      <h6 className="text-sm font-medium text-text-primary">
-                        {exp.title}
-                      </h6>
-                      <span className="text-xs text-text-muted shrink-0">
-                        {exp.period}
-                      </span>
-                    </div>
-                    <p className="text-xs text-accent-cyan font-medium">
-                      {exp.company} • {exp.location}
-                    </p>
-                    <p className="text-xs text-text-secondary mt-1.5">
-                      {exp.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 mt-2">
-                      {exp.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-0.5 rounded-md bg-bg-secondary border border-border text-[10px] text-text-muted"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Certifications */}
-            <div>
-              <h5 className="text-sm font-semibold text-text-primary mb-4 flex items-center gap-2">
-                <Award className="w-4 h-4 text-accent-purple" />
-                Certifications
-              </h5>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {certificationsData.map((cert) => (
-                  <div
-                    key={cert.name}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-bg-primary/50 border border-border"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-accent-cyan/10 flex items-center justify-center shrink-0">
-                      <cert.icon className="w-4 h-4 text-accent-cyan" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs font-medium text-text-primary truncate">
-                        {cert.name}
-                      </p>
-                      <p className="text-[10px] text-text-muted">
-                        {cert.issuer} • {cert.date}
-                      </p>
-                    </div>
+        <AnimatePresence initial={false}>
+          {showFullResume && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <div className="p-4 sm:p-6 border-t border-border space-y-6">
+                {/* Experience */}
+                <div>
+                  <h5 className="text-sm font-semibold text-text-primary mb-4 flex items-center gap-2">
+                    <Briefcase className="w-4 h-4 text-accent-cyan" />
+                    Work Experience
+                  </h5>
+                  <div className="space-y-4">
+                    {experienceData.map((exp, index) => (
+                      <motion.div
+                        key={exp.id}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="relative pl-4 sm:pl-6 border-l-2 border-accent-cyan/20 hover:border-accent-cyan/60 transition-colors"
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-1">
+                          <h6 className="text-sm font-medium text-text-primary">
+                            {exp.title}
+                          </h6>
+                          <span className="text-xs text-text-muted shrink-0">
+                            {exp.period}
+                          </span>
+                        </div>
+                        <p className="text-xs text-accent-cyan font-medium">
+                          {exp.company} • {exp.location}
+                        </p>
+                        <p className="text-xs text-text-secondary mt-1.5">
+                          {exp.description}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5 mt-2">
+                          {exp.technologies.map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-2 py-0.5 rounded-md bg-bg-secondary border border-border text-[10px] text-text-muted"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
 
-            {/* Skills Matrix */}
-            <div>
-              <h5 className="text-sm font-semibold text-text-primary mb-4 flex items-center gap-2">
-                <Star className="w-4 h-4 text-accent-pink" />
-                Skills Matrix
-              </h5>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {skillsData.map((skillGroup) => (
-                  <div
-                    key={skillGroup.category}
-                    className="p-3 rounded-xl bg-bg-primary/50 border border-border"
-                  >
-                    <div className="flex items-center gap-2 mb-2">
-                      <skillGroup.icon className={`w-4 h-4 text-${skillGroup.color}`} />
-                      <span className="text-xs font-semibold text-text-primary">
-                        {skillGroup.category}
-                      </span>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {skillGroup.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-2 py-0.5 rounded-md bg-bg-secondary text-[10px] text-text-secondary"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+                {/* Certifications */}
+                <div>
+                  <h5 className="text-sm font-semibold text-text-primary mb-4 flex items-center gap-2">
+                    <Award className="w-4 h-4 text-accent-purple" />
+                    Certifications
+                  </h5>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {certificationsData.map((cert) => (
+                      <div
+                        key={cert.name}
+                        className="flex items-center gap-3 p-3 rounded-xl bg-bg-primary/50 border border-border"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-accent-cyan/10 flex items-center justify-center shrink-0">
+                          <cert.icon className="w-4 h-4 text-accent-cyan" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-xs font-medium text-text-primary truncate">
+                            {cert.name}
+                          </p>
+                          <p className="text-[10px] text-text-muted">
+                            {cert.issuer} • {cert.date}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+
+                {/* Skills Matrix */}
+                <div>
+                  <h5 className="text-sm font-semibold text-text-primary mb-4 flex items-center gap-2">
+                    <Star className="w-4 h-4 text-accent-pink" />
+                    Skills Matrix
+                  </h5>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {skillsData.map((skillGroup) => (
+                      <div
+                        key={skillGroup.category}
+                        className="p-3 rounded-xl bg-bg-primary/50 border border-border"
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <skillGroup.icon className={`w-4 h-4 text-${skillGroup.color}`} />
+                          <span className="text-xs font-semibold text-text-primary">
+                            {skillGroup.category}
+                          </span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {skillGroup.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="px-2 py-0.5 rounded-md bg-bg-secondary text-[10px] text-text-secondary"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </motion.div>
-  )}
-</AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.div>
   );
@@ -587,7 +587,7 @@ export default function About() {
               </div>
             </motion.div>
 
-            {/* ─── Right Content - Holographic module (FIXED for light mode) ── */}
+            {/* ─── Right Content - Holographic module ── */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
